@@ -6,34 +6,23 @@ app.controller('AppCtrl', AppCtrl);
 
 function AppCtrl ($scope, $state, $firebaseObject, $firebaseAuth, users) {
   var vm = this;
-  var baseDataURL = 'https://mypokemonclub.firebaseio.com/';
+  var baseDataURL = 'https://project-mackay.firebaseio.com/';
   var ref = new Firebase(baseDataURL);
-  var setsURL = new Firebase(baseDataURL + 'setsAvailable/');
-  var cardSets = $firebaseObject(setsURL);
+  var guestsURL = new Firebase(baseDataURL + 'guests/');
   var auth = $firebaseAuth(ref);
 
   vm.login = login;
-  vm.logout = logout
-  $scope.user = '';
-  $scope.userAge = '';
-  vm.setCards = false; //dev
+  vm.logout = logout;
+  vm.addGuest = addGuest;
 
-  cardSets.$bindTo($scope, 'sets');
-
-  if (vm.setCards) {
-    sets.setCardData(ref);
-  }
+  setUser();
 
   ref.onAuth(function(authData) {
-    setUser();
+    setUser(authData);
   });
 
-  if (!$scope.user) {
-    $state.go("app", {}, {reload: true});
-  }
-
   function login() {
-    users.loginWithFacebook(auth, ref, reloadState);
+    users.loginWithFacebook(auth, ref, loginCallback);
   }
 
   function logout() {
@@ -42,18 +31,26 @@ function AppCtrl ($scope, $state, $firebaseObject, $firebaseAuth, users) {
     $state.go("app", {}, {reload: true});
   }
 
-  function reloadState() {
+  function loginCallback() {
     $state.go($state.current, {}, {reload: true});
   }
 
-  function setUser() {
-    var authData = users.checkAuth(ref);
-
+  function setUser(authData) {
     if (authData) {
+      var _userData = authData.facebook;
       console.log('scope', $scope);
-      $scope.user = authData.facebook;
+      $scope.user = _userData;
+      _userData.authenticated = true;
+    } else {
+      $scope.user = '';
     }
   }
+
+  function addGuest(firstName, lastName) {
+    console.log(firstName, lastName);
+    console.log('scope', $scope);
+  }
+
 
 };
 
