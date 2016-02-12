@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" ng-app="App">
 <head>
+  <base href="/">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Project Mackay App</title>
@@ -14,8 +15,8 @@
   </script>
 </head>
 <body ng-controller="AppCtrl as app" ng-class="{ login: !user }">
-  <h2>Project Mackay</h2>
 
+  <div ui-view="content"></div>
 
   <script src="assets/js/main.min.js"></script>
 

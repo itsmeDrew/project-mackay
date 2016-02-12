@@ -4,9 +4,9 @@ var app = angular.module('App.Controller.App', []);
 
 app.controller('AppCtrl', AppCtrl);
 
-function AppCtrl ($scope, $state, $firebaseObject, $firebaseAuth, users, sets) {
+function AppCtrl ($scope, $state, $firebaseObject, $firebaseAuth, users) {
   var vm = this;
-  var baseDataURL = 'https://project-mackay.firebaseio.com/';
+  var baseDataURL = 'https://mypokemonclub.firebaseio.com/';
   var ref = new Firebase(baseDataURL);
   var setsURL = new Firebase(baseDataURL + 'setsAvailable/');
   var cardSets = $firebaseObject(setsURL);

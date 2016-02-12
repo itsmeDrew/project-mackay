@@ -1,10 +1,10 @@
 'use strict';
 
-var app = angular.module('App.Service.Guests', []);
+var app = angular.module('App.Service.Users', []);
 
-app.service('guests', guestsCtrl);
+app.service('users', UsersCtrl);
 
-function guestsCtrl () {
+function UsersCtrl () {
   var vm = this;
 
   vm.authHandler = authHandler;
@@ -75,4 +75,4 @@ function guestsCtrl () {
 
 };
 
-module.exports = guestsCtrl;
+module.exports = UsersCtrl;
