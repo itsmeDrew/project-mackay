@@ -3,10 +3,11 @@
   <button class="login__btn btn-solid--login" ng-click="app.logout()" ng-if="user">logout</button>
 </div>
 <div class="guest-form">
-  <img ng-src="{{ user.profileImageURL }}" alt="profile pic">
+  <img ng-if="user" ng-src="{{ user.profileImageURL }}" alt="profile pic">
   <form class="guest-form__form">
-    <input type="text" placeholder="first name" ng-value="user.cachedUserProfile.first_name || null">
-    <input type="text" placeholder="last name" ng-value="user.cachedUserProfile.last_name || null">
-    <input type="text" placeholder="last name" ng-value="user.cachedUserProfile.last_name || null">
+    <input class="guest-form__input" type="text" placeholder="first name" ng-value="user.cachedUserProfile.first_name || null">
+    <input class="guest-form__input" type="text" placeholder="last name" ng-value="user.cachedUserProfile.last_name || null">
+    <input class="guest-form__input" type="text" placeholder="age" ng-if="!user" ng-model="app.userAge">
+    <input class="guest-form__input" type="text" placeholder="drink of choice" ng-if="user.cachedUserProfile.age_range.min >= 21 || app.userAge >= 21">
   </form>
 </div>

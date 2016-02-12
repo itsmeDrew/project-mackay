@@ -15,6 +15,7 @@ function AppCtrl ($scope, $state, $firebaseObject, $firebaseAuth, users) {
   vm.login = login;
   vm.logout = logout
   $scope.user = '';
+  $scope.userAge = '';
   vm.setCards = false; //dev
 
   cardSets.$bindTo($scope, 'sets');
