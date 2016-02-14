@@ -4,7 +4,7 @@ var app = angular.module('App.Controller.App', []);
 
 app.controller('AppCtrl', AppCtrl);
 
-function AppCtrl ($scope, $state, $firebaseObject, $firebaseAuth, users) {
+function AppCtrl ($scope, $state, $firebaseObject, $firebaseAuth, loginService, guestsService) {
   var vm = this;
   var baseDataURL = 'https://project-mackay.firebaseio.com/';
   var ref = new Firebase(baseDataURL);
@@ -22,7 +22,7 @@ function AppCtrl ($scope, $state, $firebaseObject, $firebaseAuth, users) {
   });
 
   function login() {
-    users.loginWithFacebook(auth, ref, loginCallback);
+    loginService.loginWithFacebook(auth, ref, loginCallback);
   }
 
   function logout() {
@@ -46,9 +46,8 @@ function AppCtrl ($scope, $state, $firebaseObject, $firebaseAuth, users) {
     }
   }
 
-  function addGuest(firstName, lastName) {
-    console.log(firstName, lastName);
-    console.log('scope', $scope);
+  function addGuest(firstName, lastName, drink) {
+    guestsService.addGuest(guestsURL, firstName, lastName, drink);
   }
 
 
