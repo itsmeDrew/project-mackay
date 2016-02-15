@@ -10,9 +10,15 @@ function OnConfig($stateProvider, $locationProvider, $urlRouterProvider) {
       url: '/',
       views: {
         'content': {
-          templateUrl: 'templates/home.tpl.html',
-          controller: 'HomeCtrl',
-          controllerAs: 'home'
+          templateUrl: 'templates/form.tpl.html'
+        }
+      }
+    })
+    .state('app.submitted', {
+      url: 'submitted',
+      views: {
+        'content@': {
+          templateUrl: 'templates/submitted.tpl.html'
         }
       }
     })

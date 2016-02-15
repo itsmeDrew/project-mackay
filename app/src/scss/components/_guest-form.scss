@@ -1,4 +1,21 @@
 .guest-form__input {
+  background: rgba(255,255,255,0.3);
+  border: none;
+  color: $white;
   display: block;
-  margin: 1rem;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.guest-form__input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: $white;
+}
+.guest-form__input::-moz-placeholder { /* Firefox 19+ */
+  color: $white;
+}
+.guest-form__input:-ms-input-placeholder { /* IE 10+ */
+  color: $white;
+}
+.guest-form__input:-moz-placeholder { /* Firefox 18- */
+  color: $white;
 }

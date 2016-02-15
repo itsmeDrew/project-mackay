@@ -9,13 +9,14 @@ function guestsCtrl () {
 
   vm.addGuest = addGuest;
 
-  function addGuest(ref, first, last, drink) {
+  function addGuest(ref, first, last, drink, song) {
     var _newGuestRef = ref.push();
 
     _newGuestRef.set({
       firstName: first,
       lastName: last,
-      drink: drink
+      drink: drink || null,
+      song: song
     });
   }
 

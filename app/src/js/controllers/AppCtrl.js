@@ -22,7 +22,7 @@ function AppCtrl ($scope, $state, $firebaseObject, $firebaseAuth, loginService, 
   });
 
   function login() {
-    loginService.loginWithFacebook(auth, ref, loginCallback);
+    loginService.loginWithFacebook(auth, ref, reloadState);
   }
 
   function logout() {
@@ -31,7 +31,7 @@ function AppCtrl ($scope, $state, $firebaseObject, $firebaseAuth, loginService, 
     $state.go("app", {}, {reload: true});
   }
 
-  function loginCallback() {
+  function reloadState() {
     $state.go($state.current, {}, {reload: true});
   }
 
@@ -46,8 +46,9 @@ function AppCtrl ($scope, $state, $firebaseObject, $firebaseAuth, loginService, 
     }
   }
 
-  function addGuest(firstName, lastName, drink) {
-    guestsService.addGuest(guestsURL, firstName, lastName, drink);
+  function addGuest(firstName, lastName, drink, song) {
+    guestsService.addGuest(guestsURL, firstName, lastName, drink, song);
+    $state.go('app.submitted');
   }
 
 
