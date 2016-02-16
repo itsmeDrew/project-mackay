@@ -8,6 +8,7 @@ body {
 
   background-image: url(../img/bg.jpg);
   background-size: cover;
+  background-position: center;
   line-height: $base-line-height;
   font-family: $base-font-family--sans-serif;
   width: 100%;
@@ -24,11 +25,33 @@ div[ui-view="content"] {
   position: relative;
   text-align: center;
 
-  @include breakpointLargerThan($breakpoint--medium) {
-    @include center(50%);
+  @include breakpointLargerThan($breakpoint--xlarge) {
+    @include center($base-container);
+  }
+
+  @include breakpointBetween($breakpoint--medium, $breakpoint--xlarge) {
+    @include center(60%);
   }
 
   @include breakpointSmallerThan($breakpoint--medium) {
     @include center(80%);
   }
+}
+
+.video-bg__overlay {
+  background: rgba(72,11,6, 0.6);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -99;
+}
+
+.video-bg__video {
+  @include centerHorizontal();
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  position: fixed;
+  z-index: -100;
 }

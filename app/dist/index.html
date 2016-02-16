@@ -15,6 +15,14 @@
   </script>
 </head>
 <body ng-controller="AppCtrl as app" ng-class="{ login: !user }">
+  <div class="video-bg">
+    <div class="video-bg__overlay"></div>
+    <video class="video-bg__video" autoplay  poster="assets/img/bg.jpg" id="bgvid" loop>
+        <!-- WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
+      <source src="assets/img/video-bg.webm" type="video/webm">
+      <source src="assets/img/video-bg.mp4" type="video/mp4">
+    </video>
+  </div>
 
   <div ui-view="content"></div>
 

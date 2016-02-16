@@ -21,3 +21,25 @@ label {
 .disabled {
   color: $wild-sand;
 }
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+// validation
+
+.ng-touched.ng-invalid {
+  position: relative;
+}
+
+.ng-touched.ng-invalid::after {
+  position: absolute;
+  display: block;
+  top: 0;
+  right: 0;
+  height: 100%;
+  content: "Required";
+}
