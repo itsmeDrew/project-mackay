@@ -49,6 +49,15 @@ function AppCtrl ($scope, $state, $firebaseObject, $firebaseAuth, loginService, 
   function addGuest(firstName, lastName, drink, song) {
     guestsService.addGuest(guestsURL, firstName, lastName, drink, song);
     $state.go('app.submitted');
+    $scope.formSubmitted = true;
+
+    if (!$scope.user) {
+      $scope.user = {
+        firstName: firstName
+      }
+    }
+
+    console.log($scope);
   }
 
 

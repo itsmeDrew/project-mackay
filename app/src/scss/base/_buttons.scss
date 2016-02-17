@@ -3,16 +3,16 @@ button {
 }
 
 .btn {
-  @include font-size(12px);
+  @include font-size($base-font-size);
 
   display: inline-block;
   padding: .75rem 2rem;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 2px;
-  border-radius: 99px;
-  -moz-border-radius: 99px;
-  -webkit-border-radius: 99px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -23,4 +23,13 @@ button {
 
   background: $blue;
   color: $white;
+}
+
+.btn-primary {
+  background: $coral;
+  color: $white;
+}
+
+.btn-primary:hover {
+  background: darken($coral, 2%);
 }

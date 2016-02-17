@@ -7,6 +7,24 @@ input[type=submit] {
   border: none;
 }
 
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"] + label span {
+  display:inline-block;
+  width:19px;
+  height:19px;
+  margin:-1px 4px 0 0;
+  vertical-align:middle;
+  background:coral;
+  cursor:pointer;
+}
+
+input[type="checkbox"]:checked + label span {
+    background:$red;
+}
+
 select {
   border: 1px solid $wild-sand;
   color: $black;
@@ -33,13 +51,4 @@ button:focus {
 
 .ng-touched.ng-invalid {
   position: relative;
-}
-
-.ng-touched.ng-invalid::after {
-  position: absolute;
-  display: block;
-  top: 0;
-  right: 0;
-  height: 100%;
-  content: "Required";
 }

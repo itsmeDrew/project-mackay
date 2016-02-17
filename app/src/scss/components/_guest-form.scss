@@ -1,3 +1,16 @@
+.information {
+  @include center(100%);
+
+  margin-top: 1rem;
+  padding-top: .5rem;
+  border-top: 1px solid $coral;
+  width: 50%;
+}
+
+.guest-form--wrapper {
+  margin-top: 2rem;
+}
+
 .form-group {
   @include cf();
 
@@ -32,6 +45,11 @@
 }
 
 .guest-form__label {
+  display: inline-block;
+  color: $white;
+}
+
+.guest-form__label--icon {
   background: rgba(255,255,255,0.3);
   display: block;
   width: 15%;
@@ -57,4 +75,28 @@
 }
 .guest-form__input:-moz-placeholder { /* Firefox 18- */
   color: $white;
+}
+
+.guest-form__verification {
+  text-align: left;
+  margin: 2rem;
+}
+
+.guest-form__submit {
+  width: 100%;
+  padding: 1.5rem
+}
+
+.guest-form__message--success {
+  text-transform: lowercase;
+}
+
+.login__content {
+  text-align: left;
+}
+
+.login__link {
+  font-weight: bold;
+  text-transform: capitalize;
+  cursor: pointer;
 }
