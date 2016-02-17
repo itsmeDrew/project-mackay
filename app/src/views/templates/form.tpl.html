@@ -25,9 +25,10 @@
           <input class="guest-form__input" id="last_name" type="text" placeholder="last name" ng-value="user.cachedUserProfile.last_name || null" ng-model="user.cachedUserProfile.last_name" ng-disabled="user.authenticated" required>
         </div>
         <div class="form-group" ng-show="!user.authenticated">
-          <label class="guest-form__label--icon" for="age" ng-if="user.cachedUserProfile.age_range.min < 21 || !user.cachedUserProfile.age_range.min"><i class="guest-form__icon fa fa-child"></i></label>
+          <label class="guest-form__label--icon" for="age" ng-if="!user.cachedUserProfile.age_range.min"><i class="guest-form__icon fa fa-birthday-cake"></i></label>
+          <label class="guest-form__label--icon" for="age" ng-if="user.cachedUserProfile.age_range.min < 21 "><i class="guest-form__icon fa fa-child"></i></label>
+          <label class="guest-form__label--icon" for="age" ng-if="user.cachedUserProfile.age_range.min >= 21 && user.cachedUserProfile.age_range.min < 40"><i class="guest-form__icon fa fa-graduation-cap"></i></label>
           <label class="guest-form__label--icon" for="age" ng-if="user.cachedUserProfile.age_range.min >= 40"><i class="guest-form__icon fa fa-wheelchair"></i></label>
-          <label class="guest-form__label--icon" for="age" ng-if="user.cachedUserProfile.age_range.min >= 21 && user.cachedUserProfile.age_range.min < 40"><i class="guest-form__icon fa fa-heartbeat"></i></label>
           <input class="guest-form__input" id="age" type="number" placeholder="age" ng-model="user.cachedUserProfile.age_range.min" required integer>
         </div>
         <div class="form-group" ng-show="user.cachedUserProfile.age_range.min >= 21">
