@@ -17,26 +17,26 @@
       </div>
       <fieldset>
         <div class="form-group">
-          <label class="guest-form__label--icon" for="first_name"><i class="guest-form__icon fa fa-user"></i></label>
+          <i class="guest-form__icon fa fa-user"></i>
           <input class="guest-form__input" id="first_name" type="text" placeholder="first name" ng-value="user.cachedUserProfile.first_name || null" ng-model="user.cachedUserProfile.first_name" ng-disabled="user.authenticated" required>
         </div>
         <div class="form-group">
-          <label class="guest-form__label--icon" for="last_name"><i class="guest-form__icon fa fa-user"></i></label>
+          <i class="guest-form__icon fa fa-user"></i>
           <input class="guest-form__input" id="last_name" type="text" placeholder="last name" ng-value="user.cachedUserProfile.last_name || null" ng-model="user.cachedUserProfile.last_name" ng-disabled="user.authenticated" required>
         </div>
         <div class="form-group" ng-show="!user.authenticated">
-          <label class="guest-form__label--icon" for="age" ng-if="!user.cachedUserProfile.age_range.min"><i class="guest-form__icon fa fa-birthday-cake"></i></label>
+          <i class="guest-form__icon fa fa-birthday-cake"></i>
           <label class="guest-form__label--icon" for="age" ng-if="user.cachedUserProfile.age_range.min < 21 "><i class="guest-form__icon fa fa-child"></i></label>
           <label class="guest-form__label--icon" for="age" ng-if="user.cachedUserProfile.age_range.min >= 21 && user.cachedUserProfile.age_range.min < 40"><i class="guest-form__icon fa fa-graduation-cap"></i></label>
           <label class="guest-form__label--icon" for="age" ng-if="user.cachedUserProfile.age_range.min >= 40"><i class="guest-form__icon fa fa-wheelchair"></i></label>
           <input class="guest-form__input" id="age" type="number" placeholder="age" ng-model="user.cachedUserProfile.age_range.min" required integer>
         </div>
         <div class="form-group" ng-show="user.cachedUserProfile.age_range.min >= 21">
-          <label class="guest-form__label--icon" for="alcohol"><i class="guest-form__icon fa fa-beer"></i></label>
+          <i class="guest-form__icon fa fa-beer"></i>
           <input class="guest-form__input" id="alcohol" type="text" ng-model="user.drink" placeholder="alcohol of choice">
         </div>
         <div class="form-group">
-          <label class="guest-form__label--icon" for="song"><i class="guest-form__icon fa fa-music"></i></label>
+          <i class="guest-form__icon fa fa-music"></i>
           <input class="guest-form__input" id="song" type="text" placeholder="request a song" ng-model="user.songRequest" required>
         </div>
         <div class="form-group guest-form__verification">
