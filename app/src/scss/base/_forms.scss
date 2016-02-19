@@ -13,16 +13,20 @@ input[type="checkbox"] {
 
 input[type="checkbox"] + label span {
   display:inline-block;
-  width:19px;
-  height:19px;
-  margin:-1px 4px 0 0;
+  width:23px;
+  height:23px;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  margin-right: 10px;
   vertical-align:middle;
   background:coral;
   cursor:pointer;
 }
 
 input[type="checkbox"]:checked + label span {
-    background:$red;
+    background: url('../img/sign.png') $coral no-repeat;
+    background-position: center;
 }
 
 select {

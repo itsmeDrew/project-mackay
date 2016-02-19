@@ -14,6 +14,7 @@ function AppCtrl ($scope, $state, $firebaseObject, $firebaseAuth, loginService, 
   vm.login = login;
   vm.logout = logout;
   vm.addGuest = addGuest;
+  $scope.formSubmitted = false;
 
   setUser();
 

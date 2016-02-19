@@ -6,13 +6,10 @@ html {
 body {
   @include font-size($base-font-size);
 
-  background-image: url(../img/bg.jpg);
-  background-size: cover;
-  background-position: center;
   line-height: $base-line-height;
   font-family: $base-font-family--sans-serif;
-  width: 100%;
-  height: 100%;
+  background-image: url('../img/bg.jpg');
+  background-repeat: no-repeat;
 }
 
 hgroup {
@@ -20,10 +17,9 @@ hgroup {
 }
 
 div[ui-view="content"] {
-  @include centerHorizontal();
-
   position: relative;
   text-align: center;
+  padding-top: 30px;
 
   @include breakpointLargerThan($breakpoint--xlarge) {
     @include center($base-container);
@@ -34,6 +30,7 @@ div[ui-view="content"] {
   }
 
   @include breakpointSmallerThan($breakpoint--medium) {
-    @include center(80%);
+    @include center(90%);
+
   }
 }

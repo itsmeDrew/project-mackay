@@ -27,7 +27,7 @@
         <div class="form-group" ng-show="!user.authenticated">
           <i class="guest-form__icon fa fa-birthday-cake"></i>
           <label class="guest-form__label--icon" for="age" ng-if="user.cachedUserProfile.age_range.min < 21 "><i class="guest-form__icon fa fa-child"></i></label>
-          <label class="guest-form__label--icon" for="age" ng-if="user.cachedUserProfile.age_range.min >= 21 && user.cachedUserProfile.age_range.min < 40"><i class="guest-form__icon fa fa-graduation-cap"></i></label>
+          <label class="guest-form__label--icon" for="age" ng-if="user.cachedUserProfile.age_range.min >= 21"><i class="guest-form__icon fa fa-graduation-cap"></i></label>
           <label class="guest-form__label--icon" for="age" ng-if="user.cachedUserProfile.age_range.min >= 40"><i class="guest-form__icon fa fa-wheelchair"></i></label>
           <input class="guest-form__input" id="age" type="number" placeholder="age" ng-model="user.cachedUserProfile.age_range.min" required integer>
         </div>
