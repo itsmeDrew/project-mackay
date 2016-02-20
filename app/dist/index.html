@@ -13,11 +13,9 @@
     <div class="video-bg__overlay"></div>
     <video ng-if="!formSubmitted" class="video-bg__video" poster="assets/img/bg.jpg" id="bgvid" autoplay loop>
       <source src="assets/img/video-bg.webm" type="video/webm">
-      <source src="assets/img/video-bg.mp4" type="video/mp4">
     </video>
-    <video ng-if="formSubmitted" class="video-bg__video" poster="assets/img/bg.jpg" id="bgvid" autoplay loop>
+    <video ng-hide="!formSubmitted" ng-if="formSubmitted" class="video-bg__video" poster="assets/img/bg.jpg" id="bgvid" autoplay loop>
       <source src="assets/img/video-bg-proposal.webm" type="video/webm">
-      <source src="assets/img/video-bg-proposal.mp4" type="video/mp4">
     </video>
   </div>
 

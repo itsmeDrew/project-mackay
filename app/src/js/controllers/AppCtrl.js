@@ -39,7 +39,7 @@ function AppCtrl ($scope, $state, $firebaseObject, $firebaseAuth, loginService, 
   function setUser(authData) {
     if (authData) {
       var _userData = authData.facebook;
-      console.log('scope', $scope);
+
       $scope.user = _userData;
       _userData.authenticated = true;
     } else {
@@ -57,8 +57,6 @@ function AppCtrl ($scope, $state, $firebaseObject, $firebaseAuth, loginService, 
         firstName: firstName
       }
     }
-
-    console.log($scope);
   }
 
 
