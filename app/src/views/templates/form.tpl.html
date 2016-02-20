@@ -4,17 +4,13 @@
   <p>June 11, 2016. 3-11pm</p>
 </div>
 <div class="guest-form--wrapper">
-  <div class="login__content">
+  <div class="login__content hidden--sm">
     <a class="login__link" ng-click="app.login()" ng-if="!user.authenticated">login with facebook</a>
     <a class="login__link" ng-click="app.logout()" ng-if="user.authenticated">logout</a>
   </div>
   <div class="guest-form">
     <!-- <img ng-if="user.authenticated" ng-src="{{ user.profileImageURL }}" alt="profile pic"> -->
-    <form class="guest-form__form">
-      <div role="alert">
-        <span class="error" ng-show="guest-form.user.cachedUserProfile.first_name.$error.required">
-         Required!</span>
-      </div>
+    <form class="guest-form__form" ng-class="{'submitted': formSubmitted}">
       <fieldset>
         <div class="form-group">
           <i class="guest-form__icon fa fa-user"></i>
@@ -25,10 +21,9 @@
           <input class="guest-form__input" id="last_name" type="text" placeholder="last name" ng-value="user.cachedUserProfile.last_name || null" ng-model="user.cachedUserProfile.last_name" ng-disabled="user.authenticated" required>
         </div>
         <div class="form-group" ng-show="!user.authenticated">
-          <i class="guest-form__icon fa fa-birthday-cake"></i>
-          <label class="guest-form__label--icon" for="age" ng-if="user.cachedUserProfile.age_range.min < 21 "><i class="guest-form__icon fa fa-child"></i></label>
-          <label class="guest-form__label--icon" for="age" ng-if="user.cachedUserProfile.age_range.min >= 21"><i class="guest-form__icon fa fa-graduation-cap"></i></label>
-          <label class="guest-form__label--icon" for="age" ng-if="user.cachedUserProfile.age_range.min >= 40"><i class="guest-form__icon fa fa-wheelchair"></i></label>
+          <i class="guest-form__icon fa fa-child" ng-if="user.cachedUserProfile.age_range.min < 21"></i>
+          <i class="guest-form__icon fa fa-birthday-cake" ng-if="user.cachedUserProfile.age_range.min >= 21 && user.cachedUserProfile.age_range.min < 40 || !user.cachedUserProfile.age_range.min"></i>
+          <i class="guest-form__icon fa fa-wheelchair" ng-if="user.cachedUserProfile.age_range.min >= 40"></i>
           <input class="guest-form__input" id="age" type="number" placeholder="age" ng-model="user.cachedUserProfile.age_range.min" required integer>
         </div>
         <div class="form-group" ng-show="user.cachedUserProfile.age_range.min >= 21">
@@ -40,18 +35,18 @@
           <input class="guest-form__input" id="song" type="text" placeholder="request a song" ng-model="user.songRequest" required>
         </div>
         <div class="form-group guest-form__verification">
-          <input class="guest-form__input" type="checkbox" id="c1" name="cc" required>
+          <input class="guest-form__input" type="checkbox" id="c1" name="cc" ng-model="user.coming">
           <label class="guest-form__label" for="c1"><span></span>I am definitely coming. We will bill no shows. </label>
         </div>
         <button
           class="btn btn-primary guest-form__submit"
-          type="submit"
           ng-click="app.addGuest(
             user.cachedUserProfile.first_name,
             user.cachedUserProfile.last_name,
             user.drink,
             user.songRequest
-          )"
+          );"
+          ng-disabled="!user.coming"
         >
           attend our wedding
         </button>

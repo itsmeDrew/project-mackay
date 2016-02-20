@@ -4,27 +4,21 @@
   <base href="/">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Project Mackay App</title>
+  <title>Kristal & Drew Wedding Registration</title>
   <link rel="stylesheet" href="assets/css/main.min.css">
-
-  <script>
-    var baseUrl = '//firebase.';
-    window.config = {
-      baseUrl: baseUrl
-    };
-  </script>
 </head>
+
 <body ng-controller="AppCtrl as app" ng-class="{ login: !user }">
   <div class="video-bg">
     <div class="video-bg__overlay"></div>
-    <video preload="none" ng-if="!formSubmitted" class="video-bg__video" poster="assets/img/bg.jpg" id="bgvid" autoplay loop>
+    <video ng-if="!formSubmitted" class="video-bg__video" poster="assets/img/bg.jpg" id="bgvid" autoplay loop>
       <source src="assets/img/video-bg.webm" type="video/webm">
       <source src="assets/img/video-bg.mp4" type="video/mp4">
     </video>
-    <!-- <video loop autoplay controls="true" ng-if="formSubmitted" class="video-bg__video" autoplay poster="assets/img/bg.jpg" id="bgvid" loop type='video/mp4'>
+    <video ng-if="formSubmitted" class="video-bg__video" poster="assets/img/bg.jpg" id="bgvid" autoplay loop>
       <source src="assets/img/video-bg-proposal.webm" type="video/webm">
       <source src="assets/img/video-bg-proposal.mp4" type="video/mp4">
-    </video> -->
+    </video>
   </div>
 
   <div ui-view="content"></div>

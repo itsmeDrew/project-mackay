@@ -75,9 +75,21 @@
   padding: 1.5rem
 }
 
+.guest-form__submit:disabled {
+  opacity: 0.6;
+}
+
 .guest-form__message--success {
   text-transform: lowercase;
 }
+
+.guest-form__video {
+  padding: 2rem 0;
+  width: 100%;
+  height: 350px;
+}
+
+// login
 
 .login__content {
   text-align: left;
